@@ -13,6 +13,8 @@ class Order extends Model
         'address',
     ];
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
     public function rules()
     {
         $rules = [

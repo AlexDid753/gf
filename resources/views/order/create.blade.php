@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
           <label for="rate">Тариф</label>
-          <select class="form-control" id="rate" name="rate">
+          <select class="form-control" id="rate" name="rate_id">
             @foreach($rates as $item)
               <option data-days="{{$item->days_numbers()}}" value="{{$item->id}}">{{$item->name}} - {{$item->price}}&#8381;</option>
             @endforeach
@@ -31,7 +31,7 @@
 
         <div class="form-group">
           <label for="day">Первый день доставки</label>
-          <select class="form-control" id="day" name="day">
+          <select class="form-control" id="day" name="day_number">
             @foreach($days as $item)
               <option value="{{$item->id}}">{{$item->number}}</option>
             @endforeach

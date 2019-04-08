@@ -21,10 +21,17 @@ class OrderController extends Controller
     {
         $data = $request->all();
         $model = new Order();
-        $client = Client::firstOrCreate(['phone' => $data->phone]);
-        $day = Day::where(['number' => $data->day_number])->first();
-        $data->client_id = $client->id;
-        $data->day_id = $day->id;
+        $client = Client::firstOrNew(
+            ['phone' => request('phone')],
+            ['name' => request('name')]
+        );
+        $client->name = request('name');
+        $client->save();
+
+        $day = Day::where(['number' => request('day_number')])->firstOrFail();
+
+        $data['day_id'] = $day->id;
+        $data['client_id'] = $client->id;
 
         $validator = Validator::make($data, $model->rules());
 
