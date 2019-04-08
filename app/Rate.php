@@ -15,4 +15,9 @@ class Rate extends Model
     {
         return $this->belongsToMany('App\Day');
     }
+
+    public function days_numbers()
+    {
+        return $this->days->sortBy('number')->pluck('number');
+    }
 }
