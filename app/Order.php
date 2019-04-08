@@ -2,10 +2,14 @@
 
 namespace App;
 
+use App\Traits\ModelValidateMethods;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    use ModelValidateMethods;
+    public $success_message = 'Спасибо за заказ';
+
     protected $fillable = [
         'client_id',
         'rate_id',

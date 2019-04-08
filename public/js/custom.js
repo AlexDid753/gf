@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function () {
     //Order form
     var reloadSelect = () => {
         let rateSelect = $('#rate'),
@@ -9,15 +9,32 @@ $( document ).ready(function() {
             $(this).prop('disabled', !days.includes(parseInt($(this).val())));
         })
 
-        daySelect.find('option').removeAttr("selected").filter( "option:not(:disabled)" ).first().prop('selected',true)
+        daySelect.find('option').removeAttr("selected").filter("option:not(:disabled)").first().prop('selected', true)
     }
 
     reloadSelect()
 
-    $('#rate').change(function (){
+    $('#rate').change(function () {
         reloadSelect()
     })
 
     $("input[name='phone']").mask("+7 (999) 999-9999");
+
+    $('form').submit(function (e) {
+        e.preventDefault();
+        let data = $('form').serializeArray();
+        $.ajax({
+            type: "POST",
+            url: $(this).attr('action'),
+            data: data,
+            dataType: 'json'
+        }).done(function (data) {
+            console.log('success');
+            alert(data.message)
+        }).fail(function (data) {
+            console.log('fail');
+            alert(data.responseText)
+        });
+    });
 
 });
