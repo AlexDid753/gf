@@ -1,9 +1,21 @@
 $( document ).ready(function() {
     //Order form
-    let days = $('#rate').find('option:selected').data('days')
+    var reloadSelect = () => {
+        let rateSelect = $('#rate'),
+            daySelect = $('#day'),
+            days = rateSelect.find('option:selected').data('days')
 
-    $('#day').find('option').each(function () {
-        $(this).prop('disabled', !days.includes(parseInt($(this).val())));
+        daySelect.find('option').each(function () {
+            $(this).prop('disabled', !days.includes(parseInt($(this).val())));
+        })
+
+        daySelect.find('option').removeAttr("selected").filter( "option:not(:disabled)" ).first().prop('selected',true)
+    }
+
+    reloadSelect()
+
+    $('#rate').change(function (){
+        reloadSelect()
     })
 
 });
