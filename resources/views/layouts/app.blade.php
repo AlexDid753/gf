@@ -39,6 +39,7 @@
     <script src="{{ asset('js/manifest.js') }}" defer></script>
     <script src="{{ asset('js/vendor.js') }}" defer></script>
     <script src="{{ asset('js/common.js') }}" defer></script>
+    <script src="{{ asset('js/core.min.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
 </body>
 </html>
