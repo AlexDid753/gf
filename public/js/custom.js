@@ -12,6 +12,10 @@ $(document).ready(function () {
         daySelect.find('option').removeAttr("selected").filter("option:not(:disabled)").first().prop('selected', true)
     }
 
+    var clearForm = () => {
+        $('form').find(".form-group input").val("");
+    }
+
     reloadSelect()
 
     $('#rate').change(function () {
@@ -29,10 +33,9 @@ $(document).ready(function () {
             data: data,
             dataType: 'json'
         }).done(function (data) {
-            console.log('success');
+            clearForm()
             alert(data.message)
         }).fail(function (data) {
-            console.log('fail');
             alert(data.responseText)
         });
     });

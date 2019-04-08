@@ -20,4 +20,9 @@ class Rate extends Model
     {
         return $this->days->sortBy('number')->pluck('number');
     }
+
+    public function days_ids()
+    {
+        return $this->days->sortBy('number')->pluck('number');
+    }
 }

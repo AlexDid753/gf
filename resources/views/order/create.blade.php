@@ -9,16 +9,16 @@
       <div class="col-md-10">
         <div class="form-group">
           <label for="phone">Телефон</label>
-          <input class="form-control" id="phone" name="phone" placeholder="Телефон">
+          <input required class="form-control" id="phone" name="phone" placeholder="Телефон">
           <small id="emailHelp" class="form-text text-muted">Система идентифицирует Вас по номеру телефона.</small>
         </div>
         <div class="form-group">
           <label for="name">Имя</label>
-          <input class="form-control" id="name" name="name" placeholder="Имя">
+          <input required class="form-control" id="name" name="name" placeholder="Имя">
         </div>
         <div class="form-group">
           <label for="address">Адрес</label>
-          <input class="form-control" id="address" name="address" placeholder="Адрес">
+          <input required class="form-control" id="address" name="address" placeholder="Адрес">
         </div>
         <div class="form-group">
           <label for="rate">Тариф</label>

@@ -28,14 +28,7 @@ class Client extends Model
             case 'POST':
                 return $rules;
             case 'PUT':
-                return [
-//                        'game_id' => 'required|integer|exists:games,id',
-                        'title' => [
-                            'required',
-                            Rule::unique('clients')->ignore(request()->phone, 'phone') //должен быть уникальным, за исключением себя же
-                        ]
-                    ] + $rules; // и берем все остальные правила
-            // case 'PATCH':
+                return $rules;
             default:
                 return $rules;
         }
